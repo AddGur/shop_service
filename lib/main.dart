@@ -4,6 +4,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shop_service/core/theme/app_theme.dart';
 import 'package:shop_service/core/theme/cubit/theme_cubit.dart';
+import 'package:shop_service/features/main_page/presentation/widgets/pages/main_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,17 +32,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'MockStore',
             theme: AppTheme.getTheme(state),
-            home: Scaffold(
-              appBar: AppBar(
-                title: Text('MockStore'),
-                actions: [
-                  IconButton(
-                      onPressed: () => context.read<ThemeCubit>().toggleTheme(),
-                      icon: Icon(Icons.change_circle))
-                ],
-              ),
-              body: Placeholder(),
-            ),
+            home: HomePageScreen(),
           );
         },
       ),
